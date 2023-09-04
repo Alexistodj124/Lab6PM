@@ -31,7 +31,6 @@ fun LogIn(context: Context){
         User("alexis", "alexis1"),
         User("isa", "isa2"),
         User("kelson", "kelson3"),
-        // Add more user accounts as needed
     )
     fun findUserByEmail(emailToFind: String): User? {
         return users.find { it.usuarios == emailToFind }
@@ -67,11 +66,7 @@ fun LogIn(context: Context){
             val foundUser = findUserByEmail(usuario)
 
             if (foundUser?.usuarios != null && foundUser?.password != null && contrasena == foundUser.password) {
-                print("Usuario registrado:")
                 navigateToSecondActivity(context)
-            }
-            else{
-                print("Usuario no encontrado")
             }
         }) {
             Text(text = "Ingresar")
@@ -83,18 +78,7 @@ fun navigateToSecondActivity(context: Context) {
     val intent = Intent(context, MainActivity2::class.java)
     context.startActivity(intent)
 }
-@Composable
-fun LogOut(context : Context) {
-    Button(onClick = {
-        navigateToFirstActivity(context)
-    }) {
-        Text(text = "LogOut")
-    }
-}
-fun navigateToFirstActivity(context: Context) {
-    val intent = Intent(context, MainActivity::class.java)
-    context.startActivity(intent)
-}
+
 
 
 

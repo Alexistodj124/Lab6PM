@@ -24,4 +24,7 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+    override fun onBackPressed() {
+        finishAffinity()
+    }
 }
